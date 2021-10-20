@@ -9,7 +9,7 @@ if ! [ -f "${BINARY}" ]; then
 	exit 1
 fi
 
-BINARY_CHECK="$(file "$BINARY" | grep 'ELF 64-bit LSB executable, x86-64')"
+BINARY_CHECK="$(file "$BINARY" | grep 'ELF 64-bit LSB executable,')"
 
 if [ -z "${BINARY_CHECK}" ]; then
 	echo "Binary needs to be OS linux, ARCH amd64"
