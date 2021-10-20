@@ -15,7 +15,7 @@ RUN apt-get update && \
   apt-get -y install curl jq file
 
 USER ${UID}:${GID}
-COPY wrapper.sh /usr/bin/wrapper.sh
+COPY contrib/images/simd-env/wrapper.sh /usr/bin/wrapper.sh
 
 VOLUME [ "/simd" ]
 COPY --from=build /work/build/ /simd
