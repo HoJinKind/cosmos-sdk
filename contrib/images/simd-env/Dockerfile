@@ -15,6 +15,7 @@ RUN apt-get update && \
   apt-get -y install curl jq file
 
 USER ${UID}:${GID}
+COPY wrapper.sh /usr/bin/wrapper.sh
 
 VOLUME [ "/simd" ]
 COPY --from=build /work/build/ /simd
@@ -24,5 +25,3 @@ EXPOSE 26656 26657
 ENTRYPOINT ["/usr/bin/wrapper.sh"]
 CMD ["start", "--log_format", "plain"]
 STOPSIGNAL SIGTERM
-
-COPY wrapper.sh /usr/bin/wrapper.sh
