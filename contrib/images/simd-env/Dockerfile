@@ -1,6 +1,6 @@
 FROM golang:1.17-alpine AS build
 RUN apk add build-base
-VOLUME /work
+COPY ./ /work
 WORKDIR /work
 RUN make clean build
 
