@@ -4,7 +4,7 @@ ENV COMMIT=$COMMIT TMVERSION=$TMVERSION VERSION=$VERSION
 RUN apk add build-base git linux-headers
 COPY ./ /work
 WORKDIR /work
-RUN make clean build
+RUN make GOOS=linux GOARCH=arm64 clean build
 
 FROM ubuntu:18.04 AS run
 ARG UID=1000
