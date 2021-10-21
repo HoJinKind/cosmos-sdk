@@ -16,7 +16,7 @@ USER ${UID}:${GID}
 COPY contrib/images/simd-env/wrapper.sh /usr/bin/wrapper.sh
 
 VOLUME [ "/simd" ]
-COPY --from=build /work/build/ /simd
+COPY --from=build /work/build /simd/
 WORKDIR /simd
 
 EXPOSE 26656 26657
