@@ -1,6 +1,4 @@
 FROM golang:1.17-alpine AS build
-ARG COMMIT TMVERSION VERSION
-ENV COMMIT=$COMMIT TMVERSION=$TMVERSION VERSION=$VERSION
 RUN apk add build-base git linux-headers
 COPY ./ /work
 WORKDIR /work
