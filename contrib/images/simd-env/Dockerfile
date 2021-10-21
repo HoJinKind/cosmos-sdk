@@ -6,13 +6,11 @@ COPY ./ /work
 WORKDIR /work
 RUN make clean build-linux
 
-FROM ubuntu:18.04 AS run
+FROM alpine:3.14 AS run
 ARG UID=1000
 ARG GID=1000
 
-RUN apt-get update && \
-  apt-get -y upgrade && \
-  apt-get -y install curl jq file
+RUN apk add curl jq file
 
 USER ${UID}:${GID}
 COPY contrib/images/simd-env/wrapper.sh /usr/bin/wrapper.sh
