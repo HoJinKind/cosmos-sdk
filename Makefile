@@ -473,7 +473,7 @@ proto-update-deps:
 ###############################################################################
 
 # Run a 4-node testnet locally via docker compose
-localnet-start: build-linux localnet-stop
+localnet-start: localnet-stop
 	$(if $(shell $(DOCKER) inspect -f '{{ .Id }}' cosmossdk/simd-env 2>/dev/null),$(info found image cosmossdk/simd-env),$(MAKE) -C contrib/images simd-env)
 	if ! test -f build/node0/simd/config/genesis.json; then $(DOCKER) run --rm \
 		--user $(shell id -u):$(shell id -g) \
